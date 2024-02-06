@@ -4,7 +4,7 @@ Flask app with Babel configuration, get_locale function, and gettext usage.
 """
 
 from flask import Flask, render_template, request
-from flask_babel import Babel, _, get_locale
+from flask_babel import Babel
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -33,10 +33,10 @@ def get_locale():
     locale = request.args.get("locale")
     if locale:
         return locale
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
-@app.route('/', methods=["GET"], strict_slashes=False)
+@app.route("/")
 def index():
     """
     Route handler for the main page.
@@ -44,8 +44,4 @@ def index():
     Returns:
         str: Rendered HTML template with translated messages.
     """
-    return render_template('4-index.html')
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port="5000")
+    return render_template("4-index.html")
