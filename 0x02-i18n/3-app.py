@@ -31,10 +31,10 @@ def get_locale():
     Returns:
         str: Best-matching language code.
     """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
-@app.route('/', methods=["GET"], strict_slashes=False)
+@app.route("/")
 def index():
     """
     Route handler for the main page.
@@ -42,7 +42,7 @@ def index():
     Returns:
         str: Rendered HTML template with translated messages.
     """
-    return render_template('3-index.html')
+    return render_template("3-index.html")
 
 
 if __name__ == "__main__":
