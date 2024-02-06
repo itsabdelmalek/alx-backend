@@ -4,7 +4,7 @@ Flask app with Babel configuration, user login emulation, and gettext usage.
 """
 
 from flask import Flask, render_template, request, g
-from flask_babel import Babel, _, get_locale
+from flask_babel import Babel
 
 app = Flask(__name__)
 babel = Babel(app)
